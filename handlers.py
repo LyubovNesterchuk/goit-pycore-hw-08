@@ -86,7 +86,7 @@ def show_birthday(args, book: AddressBook):
 
 
 
-@input_error
+@input_error      
 def birthdays(args, book: AddressBook):
     today = date.today()
     upcoming = []
@@ -102,18 +102,20 @@ def birthdays(args, book: AddressBook):
         if bday < today:
             bday = bday.replace(year=today.year + 1)
 
-        if bday.weekday() >= 5:
-            bday += timedelta(days=(7 - bday.weekday()))
-
         if 0 <= (bday - today).days <= 7:
-            upcoming.append(
-                f"🎉 Don't forget to congratulate!\n {record.name.value}: {bday.strftime('%d.%m.%Y')} "
-            )
+            if bday.weekday() == 5:
+                bday += timedelta(days=2)
+            elif bday.weekday() == 6:
+                bday += timedelta(days=1)
 
-    return success(
-        "\n".join(upcoming) if upcoming else "No upcoming birthdays."
-    )
+            upcoming.append((bday, record.name.value))
 
+    upcoming.sort(key=lambda x: x[0])
+
+    return success("\n".join(
+        f"🎉 Don't forget to congratulate {name} {bday.strftime('%d.%m.%Y')} !"
+        for bday, name in upcoming
+    ) if upcoming else "No upcoming birthdays.")
 
 
 @input_error
