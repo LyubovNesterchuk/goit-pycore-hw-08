@@ -176,7 +176,7 @@ def say_hello():
 
 @input_error
 def show_help():
-    return info(commands)
+    return commands
 
 
 
