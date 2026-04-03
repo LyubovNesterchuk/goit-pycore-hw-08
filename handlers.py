@@ -1,9 +1,11 @@
-from color_function import success, error, info
+import pickle
 from datetime import timedelta, date, datetime
+
+from color_function import success, error, info
 from models import Record, AddressBook
 from ui import commands
 from utils import input_error
-import pickle
+
 
 def get_record_or_fail(book: AddressBook, name: str) -> Record:
     record = book.find(name)
@@ -105,7 +107,7 @@ def birthdays(args, book: AddressBook):
 
         if 0 <= (bday - today).days <= 7:
             upcoming.append(
-                f"{record.name.value}: {bday.strftime('%d.%m.%Y')}"
+                f"🎉 Don't forget to congratulate!\n {record.name.value}: {bday.strftime('%d.%m.%Y')} "
             )
 
     return success(

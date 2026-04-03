@@ -12,7 +12,8 @@ def main():
     print(greet("Welcome to the assistant bot!\n"))
 
     while True:
-        user_input = input(info("Enter a command: ").strip())
+        print(info("Enter a command: "))
+        user_input = input().strip()
 
         if not user_input:
             print(error("Invalid command."))
@@ -62,7 +63,7 @@ def main():
             print(show_help())
 
         else:
-            print("Invalid command.")
+            print(error("Invalid command."))
 
 
 if __name__ == "__main__":
