@@ -13,7 +13,9 @@ def input_error(func):
         try:
             return func(*args, **kwargs)
 
-        except ValueError:
+        except ValueError as e:
+            if str(e):
+                return error(str(e))
             return error("Give me name and phone please.")
 
         except KeyError:

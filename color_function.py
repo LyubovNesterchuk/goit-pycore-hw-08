@@ -10,6 +10,5 @@ def error(text):
 def info(text):
     return f"{Fore.BLUE}{text}{Style.RESET_ALL}"
 
-
 def greet(text):
     return f"{Fore.YELLOW}{text}{Style.RESET_ALL}"
