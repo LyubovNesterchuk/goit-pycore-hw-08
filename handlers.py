@@ -120,6 +120,40 @@ def show_all(book: AddressBook):
 
 
 @input_error
+def remove_contact(args, book: AddressBook):
+    name = args[0]
+
+    print(error(f"Are you sure you want to delete contact '{name}'? (yes/no): "))
+    confirm = input().strip().lower()
+
+    if confirm not in ("y", "yes"):
+        return info("Deletion cancelled.")
+
+    book.delete(name)
+
+    return success(f"Contact {name} removed.")
+
+
+
+@input_error
+def remove_phone(args, book: AddressBook):
+    name, phone = args
+
+    record = get_record_or_fail(book, name)
+
+    print(error(f"Delete phone {phone} for {name}? (yes/no): "))
+    confirm = input().strip().lower()
+
+    if confirm not in ("y", "yes"):
+        return info("Deletion cancelled.")
+
+    record.remove_phone(phone)
+
+    return success(f"Phone {phone} removed for {name}.")
+
+
+
+@input_error
 def say_hello():
     return info("How can I help you?")
 
@@ -130,9 +164,13 @@ def show_help():
     return info(commands)
 
 
+
 def save_data(book, filename="addressbook.pkl"):
     with open(filename, "wb") as f:
          pickle.dump(book, f)
+
+
+
 
 def load_data(filename="addressbook.pkl"):
     try:
@@ -140,3 +178,6 @@ def load_data(filename="addressbook.pkl"):
             return pickle.load(f)
     except FileNotFoundError:
         return AddressBook()
+    
+
+

@@ -20,7 +20,9 @@ commands = '''
 7) add-birthday username DD.MM.YYYY - add a birthday for the specified contact
 8) show-birthday username - show the birthday of the specified contact
 9) birthdays - show birthdays for the next 7 days with the dates they should be congratulated
-10) exit or close - exit the application
+10) remove-phone username phone - remove a phone number
+11) remove-contact username - remove entire contact
+12) exit or close - exit the application
 ''' 
 
 def init():

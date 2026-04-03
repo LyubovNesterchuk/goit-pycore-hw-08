@@ -49,6 +49,12 @@ def main():
         elif command == "birthdays":
             print(birthdays(args, book))
 
+        elif command == "remove-phone":
+            print(remove_phone(args, book))
+
+        elif command == "remove-contact":
+            print(remove_contact(args, book))
+
         elif command == "help":
             print(show_help())
 
