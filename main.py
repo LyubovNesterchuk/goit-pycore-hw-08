@@ -1,8 +1,7 @@
-from models import AddressBook
 from handlers import *
 from utils import parse_input
 from ui import init
-from color_function import success, error, info, greet
+from color_function import error, info, greet
 
 
 def main():
