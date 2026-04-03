@@ -3,7 +3,7 @@ from datetime import timedelta, date, datetime
 from models import Record, AddressBook
 from ui import commands
 from utils import input_error
-
+import pickle
 
 def get_record_or_fail(book: AddressBook, name: str) -> Record:
     record = book.find(name)
@@ -128,3 +128,15 @@ def say_hello():
 @input_error
 def show_help():
     return info(commands)
+
+
+def save_data(book, filename="addressbook.pkl"):
+    with open(filename, "wb") as f:
+         pickle.dump(book, f)
+
+def load_data(filename="addressbook.pkl"):
+    try:
+        with open(filename, "rb") as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return AddressBook()

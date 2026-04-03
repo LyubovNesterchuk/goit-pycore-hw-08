@@ -6,7 +6,8 @@ from color_function import success, error, info, greet
 
 
 def main():
-    book = AddressBook()
+    # book = AddressBook()
+    book = load_data()
 
     print(greet("Welcome to the assistant bot!\n"))
 
@@ -20,6 +21,7 @@ def main():
         command, args = parse_input(user_input)
 
         if command in ["close", "exit"]:
+            save_data(book)
             print(greet("Good bye!"))
             break
 

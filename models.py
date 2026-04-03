@@ -8,13 +8,15 @@ class Field:
 
     def __str__(self):
         return str(self.value)
-    
+
+
 
 class Name(Field):
     def __init__(self, value):
         if not value:
             raise ValueError("Name cannot be empty")
         super().__init__(value)
+
 
 
 class Phone(Field):
@@ -31,6 +33,7 @@ class Birthday(Field):
         except ValueError:
             raise ValueError("Invalid date format. Use DD.MM.YYYY")
         super().__init__(value)
+
 
 
 class Record:
@@ -63,16 +66,16 @@ class Record:
         index = self.phones.index(phone_obj)
         self.phones[index] = new_phone_obj
 
-
     def add_birthday(self, birthday: str):
         self.birthday = Birthday(birthday)    
-
 
     def __str__(self):
         phones = "; ".join(p.value for p in self.phones) if self.phones else "No phones"
         birthday = self.birthday.value if self.birthday else "Not available"
         return f"Contact name: {self.name.value}, phones: {phones}, birthday: {birthday}"
-    
+
+
+
 class AddressBook(UserDict):
     def add_record(self, record: Record): 
         self.data[record.name.value] = record 
@@ -97,4 +100,4 @@ class AddressBook(UserDict):
             return "AddressBook is empty" 
         return "\n".join(str(record) for record in self.data.values()) 
     
-   
+  
