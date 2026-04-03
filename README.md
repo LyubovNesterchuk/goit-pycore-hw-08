@@ -30,7 +30,11 @@ A simple command-line assistant bot for managing contacts, phone numbers, and bi
 | `show-birthday <name>` | Show birthday |
 | `birthdays` | Show upcoming birthdays (7 days) |
 | `help` | Show command list |
-| `exit` or `close` | Exit the application |
+| `remove-phone <username> <phone>` | Видалити номер телефону |
+| `remove-contact <username>` | Видалити контакт повністю |
+| `show <username>` | Показати повну інформацію про контакт |
+| `help` | Показати список команд |
+| `exit` або `close` | Вийти з застосунку |
 
 ---
 
