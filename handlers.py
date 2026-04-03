@@ -52,6 +52,10 @@ def show_phone(args, book: AddressBook):
     name = args[0]
 
     record = get_record_or_fail(book, name)
+
+    if not record.phones:
+        return success(f"Contact '{name}' has no phone numbers.")
+    
     return success("; ".join(p.value for p in record.phones))
 
 
@@ -107,6 +111,16 @@ def birthdays(args, book: AddressBook):
     return success(
         "\n".join(upcoming) if upcoming else "No upcoming birthdays."
     )
+
+
+
+@input_error
+def show_contact(args, book: AddressBook):
+    name = args[0]
+
+    record = get_record_or_fail(book, name)
+
+    return success(str(record))
 
 
 

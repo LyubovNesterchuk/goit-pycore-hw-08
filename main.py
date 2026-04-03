@@ -36,10 +36,7 @@ def main():
 
         elif command == "phone":
             print(show_phone(args, book))
-
-        elif command == "all":
-            print(show_all(book))
-            
+                
         elif command == "add-birthday":
             print(add_birthday(args, book))
 
@@ -55,6 +52,12 @@ def main():
         elif command == "remove-contact":
             print(remove_contact(args, book))
 
+        elif command == "show":
+            print(show_contact(args, book))
+
+        elif command == "all":
+            print(show_all(book))
+            
         elif command == "help":
             print(show_help())
 

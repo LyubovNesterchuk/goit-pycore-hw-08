@@ -15,14 +15,15 @@ commands = '''
 2) add username phone - add a new contact with name and phone number
 3) change username old_phone new_phone- change the phone number for an existing contact
 4) phone username - show the phone number of the contact
-5) all - show all saved contacts
-6) help - show this help menu
-7) add-birthday username DD.MM.YYYY - add a birthday for the specified contact
-8) show-birthday username - show the birthday of the specified contact
-9) birthdays - show birthdays for the next 7 days with the dates they should be congratulated
-10) remove-phone username phone - remove a phone number
-11) remove-contact username - remove entire contact
-12) exit or close - exit the application
+5) add-birthday username DD.MM.YYYY - add a birthday for the specified contact
+6) show-birthday username - show the birthday of the specified contact
+7) birthdays - show birthdays for the next 7 days with the dates they should be congratulated
+8) remove-phone username phone - remove a phone number
+9) remove-contact username - remove entire contact
+10) show username - display full contact details (name, phones, birthday)
+11) all - show all saved contacts
+12) help - show this help menu
+13) exit or close - exit the application
 ''' 
 
 def init():
