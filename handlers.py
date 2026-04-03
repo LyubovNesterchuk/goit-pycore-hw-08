@@ -5,7 +5,7 @@ from color_function import success, error, info
 from models import Record, AddressBook
 from ui import commands
 from utils import input_error
-
+from formatters import format_contact, format_all_contacts, format_birthdays
 
 def get_record_or_fail(book: AddressBook, name: str) -> Record:
     record = book.find(name)
@@ -112,10 +112,8 @@ def birthdays(args, book: AddressBook):
 
     upcoming.sort(key=lambda x: x[0])
 
-    return success("\n".join(
-        f"🎉 Don't forget to congratulate {name} {bday.strftime('%d.%m.%Y')} !"
-        for bday, name in upcoming
-    ) if upcoming else "No upcoming birthdays.")
+    return success(format_birthdays(upcoming))
+
 
 
 @input_error
@@ -123,19 +121,17 @@ def show_contact(args, book: AddressBook):
     name = args[0]
 
     record = get_record_or_fail(book, name)
-
-    #return success(str(record))
-    return  success(record.pretty())
+    # return success(str(record))
+    return success(format_contact(record))
 
 
 
 @input_error
 def show_all(book: AddressBook):
-    if not book.data:
-        return error("No contacts saved.")
-
-    return success("\n".join(str(record) for record in book.data.values()))
-
+#     if not book.data:
+#         return error("No contacts saved.")
+#     return success("\n".join(str(record) for record in book.data.values()))
+    return success(format_all_contacts(book.data.values()))
 
 
 @input_error

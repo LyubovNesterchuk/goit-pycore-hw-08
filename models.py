@@ -74,16 +74,6 @@ class Record:
         birthday = self.birthday.value if self.birthday else "Not available"
         return f"Contact name: {self.name.value}, phones: {phones}, birthday: {birthday}"
 
-    def pretty(self):
-        phones = "; ".join(p.value for p in self.phones) if self.phones else "None"
-        birthday = self.birthday.value if self.birthday else "Not set"
-        return (
-            f"\n{'='*30}\n"
-            f"👤 {self.name.value}\n"
-            f"📞 {phones}\n"
-            f"🎂 {birthday}\n"
-            f"{'='*30}\n"
-        )
 
 
 class AddressBook(UserDict):
