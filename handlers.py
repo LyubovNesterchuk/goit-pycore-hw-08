@@ -120,7 +120,8 @@ def show_contact(args, book: AddressBook):
 
     record = get_record_or_fail(book, name)
 
-    return success(str(record))
+    #return success(str(record))
+    return  success(record.pretty())
 
 
 
@@ -141,7 +142,7 @@ def remove_contact(args, book: AddressBook):
     confirm = input().strip().lower()
 
     if confirm not in ("y", "yes"):
-        return info("Deletion cancelled.")
+        return success("Deletion cancelled.")
 
     book.delete(name)
 
@@ -159,7 +160,7 @@ def remove_phone(args, book: AddressBook):
     confirm = input().strip().lower()
 
     if confirm not in ("y", "yes"):
-        return info("Deletion cancelled.")
+        return success("Deletion cancelled.")
 
     record.remove_phone(phone)
 

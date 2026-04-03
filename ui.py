@@ -1,4 +1,5 @@
-from color_function import  info, greet
+from colorama import Fore, Style
+from color_function import greet
 
 
 welcome_banner = '''
@@ -10,23 +11,24 @@ welcome_banner = '''
 \_| |_/___/___/_|___/\__\__,_|_| |_|\__| |_.__/ \___/ \__|
 '''
 
-commands = '''
-1) hello - greet the assistant bot
-2) add username phone - add a new contact with name and phone number
-3) change username old_phone new_phone- change the phone number for an existing contact
-4) phone username - show the phone number of the contact
-5) add-birthday username DD.MM.YYYY - add a birthday for the specified contact
-6) show-birthday username - show the birthday of the specified contact
-7) birthdays - show birthdays for the next 7 days with the dates they should be congratulated
-8) remove-phone username phone - remove a phone number
-9) remove-contact username - remove entire contact
-10) show username - display full contact details (name, phones, birthday)
-11) all - show all saved contacts
-12) help - show this help menu
-13) exit or close - exit the application
-''' 
+
+commands = f'''
+{Fore.BLUE}1){Style.RESET_ALL} {Fore.YELLOW}hello{Style.RESET_ALL} - {Fore.BLUE}greet the assistant bot{Style.RESET_ALL}
+{Fore.BLUE}2){Style.RESET_ALL} {Fore.YELLOW}add username phone{Style.RESET_ALL} - {Fore.BLUE}add a new contact with name and phone number{Style.RESET_ALL}
+{Fore.BLUE}3){Style.RESET_ALL} {Fore.YELLOW}change username old_phone new_phone{Style.RESET_ALL} - {Fore.BLUE}change the phone number for an existing contact{Style.RESET_ALL}
+{Fore.BLUE}4){Style.RESET_ALL} {Fore.YELLOW}phone username{Style.RESET_ALL} - {Fore.BLUE}show the phone number of the contact{Style.RESET_ALL}
+{Fore.BLUE}5){Style.RESET_ALL} {Fore.YELLOW}add-birthday username DD.MM.YYYY{Style.RESET_ALL} - {Fore.BLUE}add a birthday for the specified contact{Style.RESET_ALL}
+{Fore.BLUE}6){Style.RESET_ALL} {Fore.YELLOW}show-birthday username{Style.RESET_ALL} - {Fore.BLUE}show the birthday of the specified contact{Style.RESET_ALL}
+{Fore.BLUE}7){Style.RESET_ALL} {Fore.YELLOW}birthdays{Style.RESET_ALL} - {Fore.BLUE}show birthdays for the next 7 days{Style.RESET_ALL}
+{Fore.BLUE}8){Style.RESET_ALL} {Fore.YELLOW}remove-phone username phone{Style.RESET_ALL} - {Fore.BLUE}remove a phone number{Style.RESET_ALL}
+{Fore.BLUE}9){Style.RESET_ALL} {Fore.YELLOW}remove-contact username{Style.RESET_ALL} - {Fore.BLUE}remove entire contact{Style.RESET_ALL}
+{Fore.BLUE}10){Style.RESET_ALL} {Fore.YELLOW}show username{Style.RESET_ALL} - {Fore.BLUE}display full contact details{Style.RESET_ALL}
+{Fore.BLUE}11){Style.RESET_ALL} {Fore.YELLOW}all{Style.RESET_ALL} - {Fore.BLUE}show all saved contacts{Style.RESET_ALL}
+{Fore.BLUE}12){Style.RESET_ALL} {Fore.YELLOW}help{Style.RESET_ALL} - {Fore.BLUE}show this help menu{Style.RESET_ALL}
+{Fore.BLUE}13){Style.RESET_ALL} {Fore.YELLOW}exit or close{Style.RESET_ALL} - {Fore.BLUE}exit the application{Style.RESET_ALL}
+'''
 
 def init():
     print(greet(welcome_banner))
-    print(info(commands))
+    print(commands)
     print()
