@@ -2,7 +2,7 @@ from colorama import Fore, Style
 from color_function import greet
 
 
-welcome_banner = '''
+welcome_banner = r'''
   ___          _     _              _     _           _   
  / _ \        (_)   | |            | |   | |         | |  
 / /_\ \___ ___ _ ___| |_ __ _ _ __ | |_  | |__   ___ | |_ 

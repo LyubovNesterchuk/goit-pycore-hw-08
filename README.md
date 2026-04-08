@@ -46,6 +46,8 @@ A simple command-line assistant bot for managing contacts, phone numbers, and bi
 ├── handlers.py # Command handlers (add, change, etc.)
 ├── utils.py # Helper functions (parser, decorators)
 ├── color_function.py # Colored output functions
+├── formatters.py 
+├── ui.py 
 └── README.md
 
 
